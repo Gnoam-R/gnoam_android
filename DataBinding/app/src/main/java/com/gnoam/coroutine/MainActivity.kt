@@ -15,14 +15,22 @@ class MainActivity : AppCompatActivity() {
 
     fun main() = runBlocking {
         doWorld()
+
         Log.e(TAG, "finish")
     }
 
+
     suspend fun doWorld() = coroutineScope {
         launch {
+            delay(2000L)
+            Log.e(TAG, "world2")
+        }
+        launch {
             delay(1000L)
-            Log.e(TAG, "world")
+            Log.e(TAG, "world1")
         }
         Log.e(TAG, "hello")
     }
+
+
 }
