@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
+import android.os.Message
 import android.util.Log
 import android.widget.TextView
 
@@ -19,10 +20,15 @@ class MainActivity : AppCompatActivity() {
         val mTextView = findViewById<TextView>(R.id.tv_main)
 
 //         test1
+        /*
         val mHandler = Handler(Looper.getMainLooper())
         test_Handler1(mHandler, mTextView)
 
+
+         */
+
         // test2
+        /*
         val eThread = HandlerThread("myThread")
         val mLooper = eThread.looper
 
@@ -30,6 +36,21 @@ class MainActivity : AppCompatActivity() {
         //  test2에 대한 메서드 실행시 오류(MainThread 관련)
         //  test_Handler2(mHandler2, mTextView)
 
+
+         */
+
+        // test3
+
+
+        val mHandler3 = object : Handler(Looper.getMainLooper()) {
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+                val user = msg.obj as User
+                Log.e("test" , "mHandler3-------test log$user")
+                mTextView.text = "mHandler3"
+            }
+        }
+        test_Handler3(mHandler3, mTextView)
     }
 }
 
@@ -52,3 +73,16 @@ private fun test_Handler2(mHandler: Handler, mTextView: TextView) {
     }
     mHandler.post(mRunable)
 }
+
+data class User(val id: String, val name: String)
+
+private fun test_Handler3(mHandler: Handler, mTextView: TextView) {
+//    val message = Message.obtain()
+    val message = mHandler.obtainMessage()
+    message.obj = User("1", "roh")
+
+    Log.e("test" , "mHandler3-------before")
+    mHandler.sendMessage(message)
+    Log.e("test" , "mHandler3-------after")
+}
+
