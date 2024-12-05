@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        bt1LiveData.observe(this, Observer<String> {
+        bt1LiveData.observe(this) {
             binding.tv1.text = it
-        })
+        }
 
         binding.bt1.setOnClickListener {
             bt1LiveData.postValue("onClicked button1")
