@@ -3,12 +3,16 @@ package com.gnoam.handler
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+<<<<<<< Updated upstream
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.widget.TextView
+=======
+import android.os.Looper
+>>>>>>> Stashed changes
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+<<<<<<< Updated upstream
         val mTextView = findViewById<TextView>(R.id.tv_main)
 
 //         test1
@@ -51,6 +56,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         test_Handler3(mHandler3, mTextView)
+=======
+        Looper.
+>>>>>>> Stashed changes
     }
 }
 
