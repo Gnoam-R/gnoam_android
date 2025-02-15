@@ -24,6 +24,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Button1"
                 android:text="Button1"
+                android:onClick="startSingleNetworkActivity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
